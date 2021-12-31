@@ -1,7 +1,3 @@
-import 'package:hotels_app/model/booking_model.dart';
-import 'package:hotels_app/model/employee_model.dart';
-import 'package:hotels_app/model/guest_model.dart';
-import 'package:hotels_app/model/room_model.dart';
 
 /*
 ╔═══════════════════════════════════════════════════╗
@@ -17,79 +13,47 @@ class BranchModel {
     required this.id,
     required this.address,
     required this.stars,
-    this.room,
-    this.guestModel,
-    this.employeeModel,
-    this.booking,});
-
-  //
-  //
-  // Map<String, dynamic> toMap() {
-  //   return {
-  //     'id': this.id,
-  //     'address': this.address,
-  //     'stars': this.stars,
-  //     'room': this.room,
-  //     'guest': this.guest,
-  //     'employee': this.employee,
-  //     'bookings': this.bookings,
-  //   };
-  // }
-  //
-  //
-  // factory BranchModel.fromMap(Map<String, dynamic> map) {
-  //   return BranchModel(
-  //     id: map['id'] as String,
-  //     address: map['address'] as String,
-  //     stars: map['stars'] as int,
-  //     room: map['room'] as Room,
-  //     guest: map['guest'] as GuestModel,
-  //     employee: map['employee'] as EmployeeModel,
-  //     bookings: map['bookings'] as List<Booking>,
-  //   );
-  // }
+    required this.roomId,
+    required this.guestModelId,
+    required this.employeeModelId,
+    required this.bookingIds,});
 
   factory BranchModel.fromMap(Map<String, dynamic> map) {
-    List<Booking> tempBooking = [];
-    map['Booking'].forEach((v) {
-      tempBooking.add(Booking.fromMap(v));
-    });
     return BranchModel(
     id : map['id'],
     address : map['address'] ?? '',
     stars : map['stars'] ?? '',
-    room : map['Room'] != null ? Room.fromMap(map['Room']) : null,
-    guestModel:map['GuestModel'] != null ? GuestModel.fromMap(map['GuestModel']) : null,
-    employeeModel : map['EmployeeModel'] != null ? EmployeeModel.fromMap(map['EmployeeModel']) : null,
-    booking : tempBooking,
+    roomId : map['rooms'] != '' ? '${map['rooms']}'.split(",").map(int.parse).toList():[],
+    guestModelId:  map['rooms'] != '' ? '${map['rooms']}'.split(",").map(int.parse).toList():[],
+    employeeModelId :  map['rooms'] != '' ? '${map['rooms']}'.split(",").map(int.parse).toList():[],
+    bookingIds :  map['bookings'] != '' ? '${map['bookings']}'.split(",").map(int.parse).toList():[],
     );
   }
-  String id;
+  int id;
   String address;
   int stars;
-  Room? room;
-  GuestModel? guestModel;
-  EmployeeModel? employeeModel;
-  List<Booking>? booking;
+  List<int> roomId;
+  List<int> guestModelId;
+  List<int> employeeModelId;
+  List<int>? bookingIds;
 
   Map<String, dynamic> toMap() {
     final map = <String, dynamic>{};
     map['id'] = id;
     map['address'] = address;
     map['stars'] = stars;
-    if (room != null) {
-      map['Room'] = room?.toMap();
+    if (roomId != null) {
+      map['rooms'] = roomId.join(',');
     }
-    if (guestModel != null) {
-      map['GuestModel'] = guestModel?.toMap();
+    if (guestModelId != null) {
+      map['guests'] = guestModelId.join(',');
     }
-    if (employeeModel != null) {
-      map['EmployeeModel'] = employeeModel?.toMap();
+    if (employeeModelId != null) {
+      map['employees'] = employeeModelId.join(',');
     }
-    if (booking != null) {
-      map['Booking'] = booking?.map((v) => v.toMap()).toList();
+    if (bookingIds != null) {
+      map['bookings'] = bookingIds!.join(',');
     }
     return map;
   }
-
 }

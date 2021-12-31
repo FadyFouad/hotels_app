@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 /*
 ╔═══════════════════════════════════════════════════╗
@@ -10,8 +9,8 @@ import 'package:flutter/material.dart';
 
 class GuestModel{
   int id;
-  String branchId;
-  String roomId;
+  int branchId;
+  int roomId;
   String name;
   String email;
   String phone;
@@ -29,21 +28,21 @@ class GuestModel{
 
   Map<String, dynamic> toMap() {
     return {
-      'id': this.id,
-      'branchId': this.branchId,
-      'roomId': this.roomId,
-      'name': this.name,
-      'email': this.email,
-      'phone': this.phone,
-      'address': this.address,
+      'id': id,
+      'branchId': branchId,
+      'roomId': roomId,
+      'name': name,
+      'email': email,
+      'phone': phone,
+      'address': address,
     };
   }
 
   factory GuestModel.fromMap(Map<String, dynamic> map) {
     return GuestModel(
       id: map['id'] as int,
-      branchId: map['branchId'] as String,
-      roomId: map['roomId'] as String,
+      branchId: map['branchId'] as int,
+      roomId: map['roomId'] as int,
       name: map['name'] as String,
       email: map['email'] as String,
       phone: map['phone'] as String,

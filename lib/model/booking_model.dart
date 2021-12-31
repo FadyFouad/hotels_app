@@ -7,9 +7,9 @@
 */
 class Booking {
   int id;
-  String roomId;
-  String guestId;
-  String branchId;
+  int roomId;
+  int guestId;
+  int branchId;
   String fromDate;
   String toDate;
 
@@ -23,21 +23,21 @@ class Booking {
 
   Map<String, dynamic> toMap() {
     return {
-      'id': this.id,
-      'roomId': this.roomId,
-      'guestId': this.guestId,
-      'branchId': this.branchId,
-      'fromDate': this.fromDate,
-      'toDate': this.toDate,
+      'id': id,
+      'roomId': roomId,
+      'guestId': guestId,
+      'branchId': branchId,
+      'fromDate': fromDate,
+      'toDate': toDate,
     };
   }
 
   factory Booking.fromMap(Map<String, dynamic> map) {
     return Booking(
       id: map['id'] as int,
-      roomId: map['roomId'] as String,
-      guestId: map['guestId'] as String,
-      branchId: map['branchId'] as String,
+      roomId: map['roomId'] as int,
+      guestId: map['guestId'] as int,
+      branchId: map['branchId'] as int,
       fromDate: map['fromDate'] as String,
       toDate: map['toDate'] as String,
     );

@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 /*
 ╔═══════════════════════════════════════════════════╗
 ║ Created by Fady Fouad on 30-Dec-21 at 23:23.      ║
@@ -8,9 +6,10 @@ import 'package:flutter/material.dart';
 ╚═══════════════════════════════════════════════════╝
 */
 
-class Room{
+class Room {
   int id;
-  int roomNumber ;
+  int roomNumber;
+
   int numOfBeds;
   String view;
   String level;
@@ -29,13 +28,13 @@ class Room{
 
   Map<String, dynamic> toMap() {
     return {
-      'id': this.id,
-      'roomNumber': this.roomNumber,
-      'numOfBeds': this.numOfBeds,
-      'view': this.view,
-      'level': this.level,
-      'isForSmoking': this.isForSmoking,
-      'isEmpty': this.isEmpty,
+      'id': id,
+      'roomNumber': roomNumber,
+      'numOfBeds': numOfBeds,
+      'view': view,
+      'level': level,
+      'isForSmoking': isForSmoking,
+      'isEmpty': isEmpty,
     };
   }
 
@@ -46,8 +45,8 @@ class Room{
       numOfBeds: map['numOfBeds'] as int,
       view: map['view'] as String,
       level: map['level'] as String,
-      isForSmoking: map['isForSmoking'] as bool,
-      isEmpty: map['isEmpty'] as bool,
+      isForSmoking: map['isForSmoking'] == 0 ? false : true,
+      isEmpty: map['isEmpty'] == 0 ? false : true,
     );
   }
 }

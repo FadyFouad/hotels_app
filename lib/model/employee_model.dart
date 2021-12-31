@@ -12,7 +12,7 @@ class EmployeeModel{
   int id;
   String name;
   String phone;
-  String branchId;
+  int branchId;
   String privileges;
 
   EmployeeModel({
@@ -25,11 +25,11 @@ class EmployeeModel{
 
   Map<String, dynamic> toMap() {
     return {
-      'id': this.id,
-      'name': this.name,
-      'phone': this.phone,
-      'branchId': this.branchId,
-      'privileges': this.privileges,
+      'id': id,
+      'name': name,
+      'phone': phone,
+      'branchId': branchId,
+      'privileges': privileges,
     };
   }
 
@@ -38,7 +38,7 @@ class EmployeeModel{
       id: map['id'] as int,
       name: map['name'] as String,
       phone: map['phone'] as String,
-      branchId: map['branchId'] as String,
+      branchId: map['branchId'] as int,
       privileges: map['privileges'] as String,
     );
   }
