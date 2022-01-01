@@ -76,6 +76,7 @@ class DatabaseHandler {
             sqlQuery:
                 "CREATE TABLE $bookingsTableName(id INTEGER PRIMARY KEY,roomId INTEGER,guestId INTEGER,branchId INTEGER,fromDate TEXT,toDate TEXT)");
         log.i('db created: ' + dbName);
+        addDummyData();
         },
       version: databaseVersion,
     );
@@ -181,27 +182,27 @@ _dummyData() {
     Room(
         id: 1,
         roomNumber: 1,
-        level: '8',
+        level: '5A',
         numOfBeds: 3,
         isEmpty: true,
         isForSmoking: false,
-        view: '')
+        view: 'Sea View')
   ];
   final guests = [
     GuestModel(
         id: 1,
         name: 'Fady',
         address: 'Cairo',
-        email: 'email',
-        phone: '011',
+        email: 'example@email.com',
+        phone: '01123815517',
         roomId: 1,
         branchId: 1)
   ];
   final e = [
     EmployeeModel(
       id: 1,
-      name: '',
-      phone: '',
+      name: 'John Dao',
+      phone: '011',
       branchId: 1,
       privileges: 'admin',
     )
@@ -213,8 +214,8 @@ _dummyData() {
       stars: 5,
       roomId: [1, 2, 3],
       guestModelId: [1],
-      bookingIds: [],
-      employeeModelId: [12],
+      bookingIds: [1,2,3],
+      employeeModelId: [1],
     ),
   ];
   DatabaseHandler().insertBranch(branches).catchError((e) {

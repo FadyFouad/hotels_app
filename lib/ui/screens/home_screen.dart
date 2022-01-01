@@ -353,7 +353,7 @@ class HomeScreen extends GetView<HomeController> {
                                               CrossAxisAlignment.start,
                                               children: <Widget>[
                                                 Text(
-                                                  "from ${controller.bookings[i]
+                                                  "to ${controller.bookings[i]
                                                       .fromDate}",
                                                   style: Theme
                                                       .of(context)
@@ -364,7 +364,7 @@ class HomeScreen extends GetView<HomeController> {
                                                       Colors.white),
                                                 ),
                                                 Text(
-                                                  "to ${controller.bookings[i]
+                                                  "from ${controller.bookings[i]
                                                       .toDate}",
                                                   style: Theme
                                                       .of(context)

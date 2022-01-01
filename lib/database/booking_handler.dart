@@ -42,7 +42,7 @@ class BookingsDataBaseHandler {
     int result = 0;
     final Database db = await DatabaseHandler().initializeDB();
     result = await db
-        .update(bookingsTableName, book, where: 'id =$id')
+        .update(bookingsTableName, book,  where: 'id = ?',whereArgs: [id])
         .catchError((e) {
       log.e(e);
       result = 0;

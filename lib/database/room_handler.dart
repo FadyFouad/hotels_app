@@ -44,7 +44,7 @@ class RoomsDataBaseHandler {
     int result = 0;
     final Database db = await DatabaseHandler().initializeDB();
     result = await db
-        .update(roomsTableName, room, where: 'id =$id')
+        .update(roomsTableName, room, where: 'id = ?',whereArgs: [id])
         .catchError((e) {
       log.e(e);
       result = 0;

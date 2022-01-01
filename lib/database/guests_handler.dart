@@ -43,7 +43,7 @@ class GuestDataBaseHandler {
     int result = 0;
     final Database db = await DatabaseHandler().initializeDB();
     result = await db
-        .update(branchesTableName, guest, where: 'id =$id')
+        .update(guestsTableName, guest, where: 'id = ?',whereArgs: [id])
         .catchError((e) {
       log.e(e);
       result = 0;

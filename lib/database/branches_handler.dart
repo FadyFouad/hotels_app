@@ -41,7 +41,7 @@ class BranchesDataBaseHandler {
     int result = 0;
     final Database db = await DatabaseHandler().initializeDB();
     result = await db
-        .update(branchesTableName, branch, where: 'id =$id')
+        .update(branchesTableName, branch,  where: 'id = ?',whereArgs: [id])
         .catchError((e) {
       log.e(e);
       result = 0;

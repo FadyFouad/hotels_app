@@ -42,7 +42,7 @@ class EmployeesDataBaseHandler {
     int result = 0;
     final Database db = await DatabaseHandler().initializeDB();
     result = await db
-        .update(employeesTableName, branch, where: 'id =$id')
+        .update(employeesTableName, branch,  where: 'id = ?',whereArgs: [id])
         .catchError((e) {
       log.e(e);
       result = 0;

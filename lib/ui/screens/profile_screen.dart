@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:hotels_app/controller/profile_controller.dart';
 import 'package:hotels_app/ui/widgets/mybottomnavbar.dart';
 import 'package:hotels_app/ui/widgets/profile_widget.dart';
 import 'package:hotels_app/ui/widgets/textfield_widget.dart';
@@ -12,7 +14,7 @@ import 'package:hotels_app/utils/constants.dart';
 ╚═══════════════════════════════════════════════════╝
 */
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends GetView<ProfileController> {
   const ProfileScreen({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -30,26 +32,27 @@ class ProfileScreen extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             TextFieldWidget(
-              label: 'Full Name',
-              text: '',
-              onChanged: (name) {},
-            ),
+                label: 'Full Name',
+                controller: controller.name,
+                onChanged: (name) {},
+              ),
+
             const SizedBox(height: 24),
             TextFieldWidget(
               label: 'Email',
-              text: '',
+              controller: controller.email,
               onChanged: (email) {},
             ),
             const SizedBox(height: 24),
             TextFieldWidget(
-              label: 'About',
-              text: '',
-              maxLines: 5,
+              label: 'Phone',
+              controller: controller.phone,
+              maxLines: 1,
               onChanged: (about) {},
             ),
             ElevatedButton(
               onPressed: () {
-
+                controller.updateGuest();
             },
               child: const Text('Update'),
             ),
