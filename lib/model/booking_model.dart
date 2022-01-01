@@ -6,20 +6,20 @@
 ╚═══════════════════════════════════════════════════╝
 */
 class Booking {
-  int id;
-  int roomId;
-  int guestId;
-  int branchId;
-  String fromDate;
-  String toDate;
+  int ?id;
+  int? roomId;
+  int? guestId;
+  int? branchId;
+  String? fromDate;
+  String? toDate;
 
   Booking(
-      {required this.id,
-      required this.roomId,
-      required this.guestId,
-      required this.branchId,
-      required this.fromDate,
-      required this.toDate});
+      { this.id,
+       this.roomId,
+       this.guestId,
+       this.branchId,
+       this.fromDate,
+       this.toDate});
 
   Map<String, dynamic> toMap() {
     return {

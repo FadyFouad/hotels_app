@@ -8,22 +8,22 @@
 */
 
 class GuestModel{
-  int id;
-  int branchId;
-  int roomId;
-  String name;
-  String email;
-  String phone;
-  String address;
+  int? id;
+  int? branchId;
+  int? roomId;
+  String? name;
+  String? email;
+  String? phone;
+  String? address;
 
   GuestModel({
-    required this.id,
-    required this.branchId,
-    required this.roomId,
-    required this.name,
-    required this.email,
-    required this.phone,
-    required this.address,
+    this.id,
+    this.branchId,
+    this.roomId,
+    this.name,
+    this.email,
+    this.phone,
+    this.address,
   });
 
   Map<String, dynamic> toMap() {

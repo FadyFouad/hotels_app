@@ -10,13 +10,13 @@
 
 class BranchModel {
   BranchModel({
-    required this.id,
-    required this.address,
-    required this.stars,
-    required this.roomId,
-    required this.guestModelId,
-    required this.employeeModelId,
-    required this.bookingIds,});
+     this.id,
+     this.address,
+     this.stars,
+     this.roomId,
+     this.guestModelId,
+     this.employeeModelId,
+     this.bookingIds,});
 
   factory BranchModel.fromMap(Map<String, dynamic> map) {
     return BranchModel(
@@ -29,12 +29,12 @@ class BranchModel {
     bookingIds :  map['bookings'] != '' ? '${map['bookings']}'.split(",").map(int.parse).toList():[],
     );
   }
-  int id;
-  String address;
-  int stars;
-  List<int> roomId;
-  List<int> guestModelId;
-  List<int> employeeModelId;
+  int? id;
+  String? address;
+  int? stars;
+  List<int>? roomId;
+  List<int>? guestModelId;
+  List<int>? employeeModelId;
   List<int>? bookingIds;
 
   Map<String, dynamic> toMap() {
@@ -43,13 +43,13 @@ class BranchModel {
     map['address'] = address;
     map['stars'] = stars;
     if (roomId != null) {
-      map['rooms'] = roomId.join(',');
+      map['rooms'] = roomId!.join(',');
     }
     if (guestModelId != null) {
-      map['guests'] = guestModelId.join(',');
+      map['guests'] = guestModelId!.join(',');
     }
     if (employeeModelId != null) {
-      map['employees'] = employeeModelId.join(',');
+      map['employees'] = employeeModelId!.join(',');
     }
     if (bookingIds != null) {
       map['bookings'] = bookingIds!.join(',');

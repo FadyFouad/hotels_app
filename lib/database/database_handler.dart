@@ -39,7 +39,7 @@ class DatabaseHandler {
     /// Use 'join' to correctly build the path to the database file
     final dbName = join(path, 'sampleHotels.db');
 
-    log.i('db created: ' + dbName);
+
     return openDatabase(
       dbName,
 
@@ -75,7 +75,8 @@ class DatabaseHandler {
             database: database,
             sqlQuery:
                 "CREATE TABLE $bookingsTableName(id INTEGER PRIMARY KEY,roomId INTEGER,guestId INTEGER,branchId INTEGER,fromDate TEXT,toDate TEXT)");
-      },
+        log.i('db created: ' + dbName);
+        },
       version: databaseVersion,
     );
 
