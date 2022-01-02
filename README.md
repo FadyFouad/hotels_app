@@ -23,3 +23,7 @@ The  application should be composed of the following components.
 - The system should give facility to booking rooms of different types, e.g., single,    
   double, suite, and should allow booking multiple persons in a double room or a suite.
 - The system should give a discounted price (95%) if the **customer has booked previously** in the hotel.
+
+
+![Hotel app ](https://i.postimg.cc/G88dZZ57/hotels1.png) 
+![Hotel app](https://i.postimg.cc/MMCqx9kW/hotels2.png)
